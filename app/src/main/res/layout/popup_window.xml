@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:background="@drawable/yuanjiao"
+    tools:context="com.example.pault.toothbrush.MainActivity">
+
+    <View
+        android:id = "@+id/popBar"
+        android:layout_height = "0dp"
+        android:layout_width = "0dp"
+        android:background="@drawable/rewardbackground_boy"
+        app:layout_heightPercent = "100%"
+        app:layout_widthPercent = "100%"
+        app:layout_marginTopPercent = "0%"
+        />
+
+    <View
+        android:id = "@+id/icon"
+        android:layout_height = "200dp"
+        android:layout_width = "209dp"
+        android:background="@drawable/sun"
+        android:layout_gravity = "center_horizontal"
+
+        app:layout_widthPercent = "55%"
+        app:layout_heightPercent = "36%"
+        app:layout_marginTopPercent = "20%"
+        />
+
+    <Button
+        android:id = "@+id/popStar"
+        android:background= "@drawable/star"
+        android:layout_height = "0dp"
+        android:layout_width = "0dp"
+        app:layout_widthPercent = "20%"
+        app:layout_heightPercent = "12%"
+        app:layout_marginTopPercent = "83%"
+        app:layout_marginLeftPercent = "30%"
+        />
+
+    <TextView
+        android:id = "@+id/starNum"
+        android:text= "8"
+        android:textSize= "40sp"
+        android:textColor = "#fff"
+        android:layout_height = "wrap_content"
+        android:layout_width = "wrap_content"
+        app:layout_marginTopPercent = "80%"
+        app:layout_marginLeftPercent = "55%"
+        />
+
+    <Button
+        android:id = "@+id/leftBt"
+        android:background= "@drawable/calendar_arrowleft_boy"
+        android:visibility="invisible"
+        android:layout_height = "0dp"
+        android:layout_width = "0dp"
+        app:layout_widthPercent = "10%"
+        app:layout_heightPercent = "10%"
+        app:layout_marginTopPercent = "33%"
+        app:layout_marginLeftPercent = "5%"
+        />
+    <Button
+        android:id = "@+id/rightBt"
+        android:background= "@drawable/calendar_arrowright_boy"
+        android:layout_height = "0dp"
+        android:layout_width = "0dp"
+        app:layout_widthPercent = "10%"
+        app:layout_heightPercent = "10%"
+        app:layout_marginTopPercent = "33%"
+        app:layout_marginLeftPercent = "85.5%"
+        />
+</com.zhy.android.percent.support.PercentFrameLayout>

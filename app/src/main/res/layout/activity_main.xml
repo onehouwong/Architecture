@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background = "@drawable/homebackgournd"
+    tools:context="com.example.onehouwong.architecture.activity.MainActivity">
+
+
+
+    <Button
+        android:id = "@+id/star1"
+        android:background= "@drawable/star"
+        android:layout_height = "0dp"
+        android:layout_width = "0dp"
+        app:layout_widthPercent = "8.88%"
+        app:layout_heightPercent = "4.69%"
+        app:layout_marginTopPercent = "8.8%"
+        app:layout_marginLeftPercent = "73.93%"
+        />
+
+    <Button
+        android:id = "@+id/star2"
+        android:background= "@drawable/star"
+        android:layout_height = "0dp"
+        android:layout_width = "0dp"
+        app:layout_widthPercent = "8.88%"
+        app:layout_heightPercent = "4.69%"
+        app:layout_marginTopPercent = "8.8%"
+        app:layout_marginLeftPercent = "53.44%"
+        />
+
+    <TextView
+        android:id = "@+id/starText2"
+        android:text= "10"
+        android:textSize= "10dp"
+        android:textColor = "#fff"
+        android:layout_height = "0dp"
+        android:layout_width = "0dp"
+
+        app:layout_widthPercent = "6.48%"
+        app:layout_heightPercent = "1.88%"
+        app:layout_marginTopPercent = "10.205%"
+        app:layout_marginLeftPercent = "63.22%"
+        />
+
+    <TextView
+        android:id = "@+id/starText1"
+        android:text= "10"
+        android:textSize= "10dp"
+        android:textColor = "#fff"
+        android:layout_height = "0dp"
+        android:layout_width = "0dp"
+
+        app:layout_widthPercent = "6.48%"
+        app:layout_heightPercent = "1.88%"
+        app:layout_marginTopPercent = "10.205%"
+        app:layout_marginLeftPercent = "83.71%"
+        />
+
+    <com.zhy.android.percent.support.PercentFrameLayout
+        android:id = "@+id/bluebar"
+        android:background="@color/lakeBlue"
+        android:layout_height = "0dp"
+        android:layout_width = "0dp"
+        app:layout_widthPercent = "100%"
+        app:layout_heightPercent = "3.75%"
+        app:layout_marginTopPercent = "76.51%">
+
+     <TextView
+         android:id = "@+id/bartext"
+         android:text= "7月10日 - 7月30日"
+         android:textSize= "15dp"
+         android:textColor = "#fff"
+         android:layout_height = "wrap_content"
+         android:layout_width = "wrap_content"
+         android:layout_gravity= "center"
+         />
+
+    </com.zhy.android.percent.support.PercentFrameLayout>
+
+    <com.zhy.android.percent.support.PercentFrameLayout
+        android:id = "@+id/whitecenterpanel"
+        android:background="@color/white"
+        android:layout_height = "0dp"
+        android:layout_width = "fill_parent"
+
+        app:layout_heightPercent = "49.48%"
+        app:layout_marginTopPercent = "27%">
+
+        <GridLayout
+            android:layout_width = "fill_parent"
+            android:layout_height = "wrap_content"
+            android:background="@color/white"
+            android:columnCount = "1"
+            android:rowCount = "4"
+            android:id = "@+id/calendarGrid"
+
+            android:useDefaultMargins = "true"
+            app:layout_heightPercent = "100%"
+            app:layout_widthPercent = "100%"
+
+            >
+
+            <LinearLayout
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:orientation = "horizontal"
+
+                android:layout_row="0"
+
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2.44"
+                    android:text = "周五"
+                    android:textSize = "20dp"
+                    android:textColor="@color/lightBlue"
+                    android:layout_marginTop="7dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="周六"
+                    android:textSize = "20dp"
+                    android:layout_weight="1.92"
+                    android:textColor="@color/lightBlue"
+                    android:layout_marginTop="7dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="周日"
+                    android:textSize = "20dp"
+                    android:layout_weight="1.43"
+                    android:textColor="@color/lightBlue"
+                    android:layout_marginTop="7dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:textSize = "20dp"
+                    android:text="周一"
+                    android:textColor="@color/lightBlue"
+                    android:layout_marginTop="7dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+
+                    android:layout_weight="1"
+                    android:textSize = "20dp"
+                    android:text="周二"
+                    android:textColor="@color/lightBlue"
+                    android:layout_marginTop="7dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+
+                    android:layout_weight="1"
+                    android:textSize = "20dp"
+                    android:text="周三"
+                    android:textColor="@color/lightBlue"
+                    android:layout_marginTop="7dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+
+                    android:layout_weight="1"
+                    android:textSize = "20dp"
+                    android:text="周四"
+                    android:textColor="@color/lightBlue"
+                    android:layout_marginTop="7dp"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:orientation = "horizontal"
+                android:layout_row="1"
+
+                >
+
+                <Button
+                    android:id="@+id/bt1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:background = "@drawable/roundrect"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:layout_weight="1"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/bt2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:background = "@drawable/roundrect"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:layout_weight="1"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/bt3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:background = "@drawable/roundrect"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:layout_weight="1"
+                    android:text="" />
+
+
+                <Button
+                    android:id="@+id/bt4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:background = "@drawable/roundrect"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textColor="@color/lightBlue"/>
+
+                <Button
+                    android:id="@+id/bt5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:background = "@drawable/roundrect"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textColor="@color/lightBlue"/>
+
+                <Button
+                    android:id="@+id/bt6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:background = "@drawable/roundrect"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textColor="@color/lightBlue"/>
+
+                <Button
+                    android:id="@+id/bt7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:background = "@drawable/roundrect"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textColor="@color/lightBlue"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width = "match_parent"
+                android:layout_height = "80dp"
+                android:orientation = "horizontal"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="5dip"
+                android:layout_row="2"
+
+                >
+
+                <Button
+                    android:id="@+id/bt8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:background = "@drawable/rectround2"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:layout_weight="1"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/bt9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:background = "@drawable/rectround2"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:layout_weight="1"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/bt10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:background = "@drawable/rectround2"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:layout_weight="1"
+                    android:text="" />
+
+
+                <Button
+                    android:id="@+id/bt11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:background = "@drawable/rectround2"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:layout_weight="1"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/bt12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:background = "@drawable/rectround2"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:layout_weight="1"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/bt13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:background = "@drawable/rectround2"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:layout_weight="1"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/bt14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:background = "@drawable/rectround2"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:layout_weight="1"
+                    android:text="" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width = "match_parent"
+                android:layout_height = "80dp"
+                android:orientation = "horizontal"
+                android:layout_row="3"
+
+                >
+
+                <Button
+                    android:id="@+id/bt15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:background = "@drawable/roundrect3"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/bt16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:background = "@drawable/roundrect3"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/bt17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:background = "@drawable/roundrect3"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:text="" />
+
+
+                <Button
+                    android:id="@+id/bt18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:background = "@drawable/roundrect3"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/bt19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:background = "@drawable/roundrect3"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/bt20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:background = "@drawable/roundrect3"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/bt21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:background = "@drawable/roundrect3"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:text="" />
+
+            </LinearLayout>
+
+        </GridLayout>
+
+    </com.zhy.android.percent.support.PercentFrameLayout>
+
+    <View
+        android:id = "@+id/goal"
+        android:background = "@drawable/goal"
+        android:layout_height = "0dp"
+        android:layout_width = "0dp"
+
+        app:layout_widthPercent = "92.78%"
+        app:layout_heightPercent = "14.48%"
+        app:layout_marginTopPercent = "82.09%"
+        app:layout_marginLeftPercent = "3.61%"
+        />
+
+    <Button
+        android:id = "@+id/userportrait"
+        android:background = "@drawable/head1"
+        android:layout_height = "0dp"
+        android:layout_width = "0dp"
+        app:layout_widthPercent = "12.13%"
+        app:layout_heightPercent = "6.82%"
+        app:layout_marginTopPercent = "7.66%"
+        app:layout_marginLeftPercent = "3.61%"
+        />
+
+    <Button
+        android:id = "@+id/homeButton"
+        android:background = "@drawable/homebutton"
+        android:layout_height = "0dp"
+        android:layout_width = "0dp"
+        app:layout_widthPercent = "9.63%"
+        app:layout_heightPercent = "5.41%"
+        app:layout_marginTopPercent = "0.9%"
+        app:layout_marginLeftPercent = "4.81%"
+        />
+
+    <TextView
+        android:id = "@+id/username"
+        android:text= "heading"
+        android:textSize= "10dp"
+        android:textColor = "#fff"
+        android:layout_height = "0dp"
+        android:layout_width = "0dp"
+        app:layout_widthPercent = "19.26%"
+        app:layout_heightPercent = "2.55%"
+        app:layout_marginTopPercent = "10.15%"
+        app:layout_marginLeftPercent = "16.64%"
+        />
+
+
+
+    <View
+        android:id = "@+id/cartoonface"
+        android:background = "@drawable/face1"
+        android:layout_height = "0dp"
+        android:layout_width = "0dp"
+        android:layout_gravity= "center_horizontal"
+        app:layout_widthPercent = "49.26%"
+        app:layout_heightPercent = "11.72%"
+        app:layout_marginTopPercent = "17.5%"
+
+        />
+
+    <View
+        android:id = "@+id/statusBar1"
+        android:layout_height = "0dp"
+        android:layout_width = "0dp"
+        android:background="@color/skyBlue"
+        android:visibility="invisible"
+
+        app:layout_widthPercent = "100%"
+        app:layout_heightPercent = "17.5%"
+        />
+
+    <View
+        android:id = "@+id/statusBar2"
+        android:layout_height = "0dp"
+        android:layout_width = "0dp"
+        android:background="@color/lakeBlue"
+        android:visibility="invisible"
+
+        app:layout_widthPercent = "100%"
+        app:layout_heightPercent = "18.12%"
+        app:layout_marginTopPercent = "17.5%"
+        />
+
+    <TextView
+        android:id = "@+id/statusText1"
+        android:text= "8"
+        android:textSize= "30dp"
+        android:textColor = "#fff"
+        android:layout_height = "0dp"
+        android:layout_width = "0dp"
+        android:visibility = "invisible"
+        app:layout_widthPercent = "13.3%"
+        app:layout_heightPercent = "7%"
+        app:layout_marginTopPercent = "7.39%"
+        app:layout_marginLeftPercent = "81.7%"
+        />
+
+    <TextView
+        android:id = "@+id/statusText2"
+        android:text= "8"
+        android:textSize= "30dp"
+        android:textColor = "#fff"
+        android:layout_height = "0dp"
+        android:layout_width = "0dp"
+        android:visibility = "invisible"
+        app:layout_widthPercent = "13.3%"
+        app:layout_heightPercent = "7%"
+        app:layout_marginTopPercent = "7.39%"
+        app:layout_marginLeftPercent = "59%"
+        />
+
+    <TextView
+        android:id = "@+id/statusText3"
+        android:text= "昨日得星"
+        android:textSize= "15dp"
+        android:textColor = "#fff"
+        android:layout_height = "0dp"
+        android:layout_width = "0dp"
+        android:visibility = "invisible"
+        app:layout_widthPercent = "19.53%"
+        app:layout_heightPercent = "3.64%"
+        app:layout_marginTopPercent = "13.89%"
+        app:layout_marginLeftPercent = "78.62%"
+        />
+
+    <TextView
+        android:id = "@+id/statusText4"
+        android:text= "昨日得星"
+        android:textSize= "15dp"
+        android:textColor = "#fff"
+        android:layout_height = "0dp"
+        android:layout_width = "0dp"
+        android:visibility = "invisible"
+        app:layout_widthPercent = "19.53%"
+        app:layout_heightPercent = "3.64%"
+        app:layout_marginTopPercent = "13.89%"
+        app:layout_marginLeftPercent = "55.95%"
+        />
+
+    <Button
+        android:id = "@+id/closeStatus"
+        android:background= "@drawable/roundbutton"
+        android:layout_height = "0dp"
+        android:layout_width = "0dp"
+        android:text = "X"
+        android:textSize = "20dp"
+        android:visibility = "invisible"
+
+        app:layout_widthPercent = "8.79%"
+        app:layout_heightPercent = "4.94%"
+        app:layout_marginTopPercent = "0.9%"
+        app:layout_marginLeftPercent = "89.36%"
+        />
+
+    <Button
+        android:id = "@+id/statusUserIcon"
+        android:background= "@drawable/roundbutton"
+        android:layout_height = "0dp"
+        android:layout_width = "0dp"
+        android:visibility = "invisible"
+
+        app:layout_widthPercent = "15.74%"
+        app:layout_heightPercent = "8.85%"
+        app:layout_marginTopPercent = "20.36%"
+        app:layout_marginLeftPercent = "84%"
+        />
+
+    <TextView
+        android:id = "@+id/statusText5"
+        android:text= "用户名"
+        android:textSize= "15dp"
+        android:textColor = "#ffffff"
+        android:layout_height = "0dp"
+        android:layout_width = "0dp"
+        android:visibility = "invisible"
+        app:layout_widthPercent = "15%"
+        app:layout_heightPercent = "4%"
+        app:layout_marginTopPercent = "30.56%"
+        app:layout_marginLeftPercent = "84%"
+        />
+    <TextView
+        android:id = "@+id/statusText6"
+        android:text= "上次同步信息"
+        android:textSize= "12sp"
+        android:textColor = "#fff"
+        android:layout_height = "0dp"
+        android:layout_width = "0dp"
+        android:visibility = "invisible"
+        app:layout_widthPercent = "35.27%"
+        app:layout_heightPercent = "3%"
+        app:layout_marginTopPercent = "10.205%"
+        app:layout_marginLeftPercent = "25.95%"
+        />
+
+
+</com.zhy.android.percent.support.PercentFrameLayout>
