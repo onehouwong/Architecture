@@ -1,6 +1,7 @@
 package com.example.onehouwong.architecture.activity;
 
 import android.graphics.drawable.PaintDrawable;
+import android.support.annotation.IntegerRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -10,46 +11,51 @@ import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
+import android.view.animation.LinearInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.*;
 
 import com.example.onehouwong.architecture.R;
+import com.example.onehouwong.architecture.model.User;
 import com.zhy.android.percent.support.PercentFrameLayout;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity{
 
-    int sex = 1;
+    User boy1 = new User(1, "boy1");
+    User girl1 = new User(0, "girl1");
+    User currentUser; // 当前切换所在的用户
     int iconIndex = 1;
+    LinearLayout bt1; LinearLayout bt2;LinearLayout bt3;LinearLayout bt4;LinearLayout bt5;LinearLayout bt6;LinearLayout bt7;
+    LinearLayout bt8;LinearLayout bt9;LinearLayout bt10;LinearLayout bt11;LinearLayout bt12;LinearLayout bt13;LinearLayout bt14;
+    LinearLayout bt15;LinearLayout bt16;LinearLayout bt17;LinearLayout bt18;LinearLayout bt19;LinearLayout bt20;LinearLayout bt21;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        currentUser = boy1; // 当前用户设置
         DisplayMetrics dm = new DisplayMetrics();
         MainActivity.this.getWindowManager().getDefaultDisplay().getMetrics(dm);
         final int mScreenWidth  = dm.widthPixels;
         final int mScreenHeight = dm.heightPixels;
 
         final Button start1 = (Button) findViewById(R.id.star1);
-        final Button start2 = (Button) findViewById(R.id.star2);
         final Button userportrait = (Button) findViewById(R.id.userportrait);
         final Button homeButton = (Button) findViewById(R.id.homeButton);
         final Button closeStatus = (Button) findViewById(R.id.closeStatus);
         final Button statusUserIcon = (Button) findViewById(R.id.statusUserIcon);
         final TextView starText1 = (TextView) findViewById(R.id.starText1);
-        final TextView starText2 = (TextView) findViewById(R.id.starText2);
         final TextView username = (TextView) findViewById(R.id.username);
         final TextView statusText1 = (TextView) findViewById(R.id.statusText1);
         final TextView statusText2 = (TextView) findViewById(R.id.statusText2);
-        final TextView statusText3 = (TextView) findViewById(R.id.statusText3);
         final TextView statusText4 = (TextView) findViewById(R.id.statusText4);
         final TextView statusText5 = (TextView) findViewById(R.id.statusText5);
         final TextView statusText6 = (TextView) findViewById(R.id.statusText6);
         final View statusBar2 = findViewById(R.id.statusBar2);
 
         final TranslateAnimation translateAnimationStart1 = new TranslateAnimation(0,-mScreenWidth*0.4983f,0,mScreenHeight*0.04f);
-        final TranslateAnimation translateAnimationStart2 = new TranslateAnimation(0,-mScreenWidth*0.4983f,0,mScreenHeight*0.04f);
         final TranslateAnimation translateAnimationStatusText1 = new TranslateAnimation(0,-mScreenWidth*0.4983f,0,mScreenHeight*0.04f);
         final TranslateAnimation translateAnimationStatusText2 = new TranslateAnimation(0,-mScreenWidth*0.4983f,0,mScreenHeight*0.04f);
         final TranslateAnimation translateAnimationUserportrait = new TranslateAnimation(0,0,0,-mScreenHeight*0.0716f);
@@ -61,7 +67,6 @@ public class MainActivity extends AppCompatActivity{
         alphaAnimation.setDuration(1500);
 
         translateAnimationStart1.setDuration(1500);
-        translateAnimationStart2.setDuration(1500);
         translateAnimationStatusText1.setDuration(1500);
         translateAnimationStatusText2.setDuration(1500);
         translateAnimationUserportrait.setDuration(1500);
@@ -72,9 +77,7 @@ public class MainActivity extends AppCompatActivity{
 
         translateAnimationStart1.setAnimationListener(new Animation.AnimationListener() {
             @Override
-            public void onAnimationStart(Animation animation) {
-            }
-
+            public void onAnimationStart(Animation animation) {}
             @Override
             public void onAnimationEnd(Animation animation) {
                 start1.clearAnimation();
@@ -84,77 +87,12 @@ public class MainActivity extends AppCompatActivity{
                 int height = start1.getHeight();
                 start1.layout(left, top, left+width, top+height);
             }
-
             @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-        translateAnimationStart2.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                start2.clearAnimation();
-                int left = (int)(start2.getLeft()-mScreenWidth*0.4983f);
-                int top = (int) (start2.getTop() + mScreenHeight*0.04f);
-                int width = start2.getWidth();
-                int height = start2.getHeight();
-                start2.layout(left, top, left+width, top+height);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-        translateAnimationStatusText1.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                starText1.clearAnimation();
-                int left = (int)(starText1.getLeft()-mScreenWidth*0.4983f);
-                int top = (int) (starText1.getTop() + mScreenHeight*0.04f);
-                int width = starText1.getWidth();
-                int height = starText1.getHeight();
-                starText1.layout(left, top, left+width, top+height);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-        translateAnimationStatusText2.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                starText2.clearAnimation();
-                int left = (int)(starText2.getLeft()-mScreenWidth*0.4983f);
-                int top = (int) (starText2.getTop() + mScreenHeight*0.04f);
-                int width = starText2.getWidth();
-                int height = starText2.getHeight();
-                starText2.layout(left, top, left+width, top+height);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
+            public void onAnimationRepeat(Animation animation) {}
         });
         translateAnimationUserportrait.setAnimationListener(new Animation.AnimationListener() {
             @Override
-            public void onAnimationStart(Animation animation) {
-            }
-
+            public void onAnimationStart(Animation animation) {}
             @Override
             public void onAnimationEnd(Animation animation) {
                 userportrait.clearAnimation();
@@ -163,31 +101,23 @@ public class MainActivity extends AppCompatActivity{
                 int width = userportrait.getWidth();
                 int height = userportrait.getHeight();
                 userportrait.layout(left, top, left+width, top+height);
-
                 closeStatus.setVisibility(View.VISIBLE);
                 statusText1.setVisibility(View.VISIBLE);
                 statusText2.setVisibility(View.VISIBLE);
-                statusText3.setVisibility(View.VISIBLE);
                 statusText4.setVisibility(View.VISIBLE);
                 statusText6.setVisibility(View.VISIBLE);
                 statusBar2.setVisibility(View.VISIBLE);
                 statusUserIcon.setVisibility(View.VISIBLE);
                 statusText5.setVisibility(View.VISIBLE);
-
                 statusUserIcon.startAnimation(translateAnimationStatusUserIcon);
                 statusText5.startAnimation(translateAnimationStatusText5);
             }
-
             @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
+            public void onAnimationRepeat(Animation animation) {}
         });
         translateAnimationUsername.setAnimationListener(new Animation.AnimationListener() {
             @Override
-            public void onAnimationStart(Animation animation) {
-            }
-
+            public void onAnimationStart(Animation animation) {}
             @Override
             public void onAnimationEnd(Animation animation) {
                 username.clearAnimation();
@@ -197,17 +127,12 @@ public class MainActivity extends AppCompatActivity{
                 int height = username.getHeight();
                 username.layout(left, top, left+width, top+height);
             }
-
             @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
+            public void onAnimationRepeat(Animation animation) {}
         });
         translateAnimationStatusText6.setAnimationListener(new Animation.AnimationListener() {
             @Override
-            public void onAnimationStart(Animation animation) {
-            }
-
+            public void onAnimationStart(Animation animation) {}
             @Override
             public void onAnimationEnd(Animation animation) {
                 statusText6.clearAnimation();
@@ -217,17 +142,12 @@ public class MainActivity extends AppCompatActivity{
                 int height = statusText6.getHeight();
                 statusText6.layout(left, top, left+width, top+height);
             }
-
             @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
+            public void onAnimationRepeat(Animation animation) {}
         });
         translateAnimationStatusUserIcon.setAnimationListener(new Animation.AnimationListener() {
             @Override
-            public void onAnimationStart(Animation animation) {
-            }
-
+            public void onAnimationStart(Animation animation) {}
             @Override
             public void onAnimationEnd(Animation animation) {
                 statusUserIcon.clearAnimation();
@@ -237,17 +157,12 @@ public class MainActivity extends AppCompatActivity{
                 int height = statusUserIcon.getHeight();
                 statusUserIcon.layout(left, top, left+width, top+height);
             }
-
             @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
+            public void onAnimationRepeat(Animation animation) {}
         });
         translateAnimationStatusText5.setAnimationListener(new Animation.AnimationListener() {
             @Override
-            public void onAnimationStart(Animation animation) {
-            }
-
+            public void onAnimationStart(Animation animation) {}
             @Override
             public void onAnimationEnd(Animation animation) {
                 statusText5.clearAnimation();
@@ -257,11 +172,8 @@ public class MainActivity extends AppCompatActivity{
                 int height = statusText5.getHeight();
                 statusText5.layout(left, top, left+width, top+height);
             }
-
             @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
+            public void onAnimationRepeat(Animation animation) {}
         });
 
         userportrait.setOnClickListener(new View.OnClickListener() {
@@ -269,11 +181,8 @@ public class MainActivity extends AppCompatActivity{
             public void onClick(View v) {
                 userportrait.setClickable(false);
                 homeButton.setVisibility(View.INVISIBLE);
-
                 start1.startAnimation(translateAnimationStart1);
-                start2.startAnimation(translateAnimationStart2);
                 starText1.startAnimation(translateAnimationStatusText1);
-                starText2.startAnimation(translateAnimationStatusText2);
                 userportrait.startAnimation(translateAnimationUserportrait);
                 username.startAnimation(translateAnimationUsername);
                 statusText6.startAnimation(translateAnimationStatusText6);
@@ -281,27 +190,29 @@ public class MainActivity extends AppCompatActivity{
 
             }
         });
-        final Button bt1 = (Button) findViewById(R.id.bt1);
-        final Button bt2 = (Button) findViewById(R.id.bt2);
-        final Button bt3 = (Button) findViewById(R.id.bt3);
-        final Button bt4 = (Button) findViewById(R.id.bt4);
-        final Button bt5 = (Button) findViewById(R.id.bt5);
-        final Button bt6 = (Button) findViewById(R.id.bt6);
-        final Button bt7 = (Button) findViewById(R.id.bt7);
-        final Button bt8 = (Button) findViewById(R.id.bt8);
-        final Button bt9 = (Button) findViewById(R.id.bt9);
-        final Button bt10 = (Button) findViewById(R.id.bt10);
-        final Button bt11 = (Button) findViewById(R.id.bt11);
-        final Button bt12 = (Button) findViewById(R.id.bt12);
-        final Button bt13 = (Button) findViewById(R.id.bt13);
-        final Button bt14 = (Button) findViewById(R.id.bt14);
-        final Button bt15 = (Button) findViewById(R.id.bt15);
-        final Button bt16 = (Button) findViewById(R.id.bt16);
-        final Button bt17 = (Button) findViewById(R.id.bt17);
-        final Button bt18 = (Button) findViewById(R.id.bt18);
-        final Button bt19 = (Button) findViewById(R.id.bt19);
-        final Button bt20 = (Button) findViewById(R.id.bt20);
-        final Button bt21 = (Button) findViewById(R.id.bt21);
+
+        // 设置日历按钮
+        LinearLayout bt1 = (LinearLayout) findViewById(R.id.bt1);
+        LinearLayout bt2 = (LinearLayout) findViewById(R.id.bt2);
+        LinearLayout bt3 = (LinearLayout) findViewById(R.id.bt3);
+        LinearLayout bt4 = (LinearLayout) findViewById(R.id.bt4);
+        LinearLayout bt5 = (LinearLayout) findViewById(R.id.bt5);
+        LinearLayout bt6 = (LinearLayout) findViewById(R.id.bt6);
+        LinearLayout bt7 = (LinearLayout) findViewById(R.id.bt7);
+        LinearLayout bt8 = (LinearLayout) findViewById(R.id.bt8);
+        LinearLayout bt9 = (LinearLayout) findViewById(R.id.bt9);
+        LinearLayout bt10 = (LinearLayout) findViewById(R.id.bt10);
+        LinearLayout bt11 = (LinearLayout) findViewById(R.id.bt11);
+        LinearLayout bt12 = (LinearLayout) findViewById(R.id.bt12);
+        LinearLayout bt13 = (LinearLayout) findViewById(R.id.bt13);
+        LinearLayout bt14 = (LinearLayout) findViewById(R.id.bt14);
+        LinearLayout bt15 = (LinearLayout) findViewById(R.id.bt15);
+        LinearLayout bt16 = (LinearLayout) findViewById(R.id.bt16);
+        LinearLayout bt17 = (LinearLayout) findViewById(R.id.bt17);
+        LinearLayout bt18 = (LinearLayout) findViewById(R.id.bt18);
+        LinearLayout bt19 = (LinearLayout) findViewById(R.id.bt19);
+        LinearLayout bt20 = (LinearLayout) findViewById(R.id.bt20);
+        LinearLayout bt21 = (LinearLayout) findViewById(R.id.bt21);
         statusUserIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -310,76 +221,11 @@ public class MainActivity extends AppCompatActivity{
                 PercentFrameLayout bluebar = (PercentFrameLayout) findViewById(R.id.bluebar);
                 PercentFrameLayout activity_main = (PercentFrameLayout) findViewById(R.id.activity_main);
 
-
-                if(sex == 1){
-                    sex++;
-                    userportrait.setBackground(getResources().getDrawable(R.drawable.head2));
-                    cartoonface.setBackground(getResources().getDrawable(R.drawable.face2));
-                    homeButton.setBackground(getResources().getDrawable(R.drawable.homebutton2));
-                    goal.setBackground(getResources().getDrawable(R.drawable.goal2));
-                    bluebar.setBackground(getResources().getDrawable(R.color.colorAccent));
-                    statusBar2.setBackground(getResources().getDrawable(R.color.colorAccent));
-                    activity_main.setBackground(getResources().getDrawable(R.drawable.homebackgournd2));
-                    bt1.setBackground(getResources().getDrawable(R.drawable.button_girl_1));
-                    bt2.setBackground(getResources().getDrawable(R.drawable.button_girl_1));
-                    bt3.setBackground(getResources().getDrawable(R.drawable.button_girl_1));
-                    bt4.setBackground(getResources().getDrawable(R.drawable.button_girl_1));
-                    bt5.setBackground(getResources().getDrawable(R.drawable.button_girl_1));
-                    bt6.setBackground(getResources().getDrawable(R.drawable.button_girl_1));
-                    bt7.setBackground(getResources().getDrawable(R.drawable.button_girl_1));
-                    bt8.setBackground(getResources().getDrawable(R.drawable.button_girl_2));
-                    bt9.setBackground(getResources().getDrawable(R.drawable.button_girl_2));
-                    bt10.setBackground(getResources().getDrawable(R.drawable.button_girl_2));
-                    bt11.setBackground(getResources().getDrawable(R.drawable.button_girl_2));
-                    bt12.setBackground(getResources().getDrawable(R.drawable.button_girl_2));
-                    bt13.setBackground(getResources().getDrawable(R.drawable.button_girl_2));
-                    bt14.setBackground(getResources().getDrawable(R.drawable.button_girl_2));
-                    bt15.setBackground(getResources().getDrawable(R.drawable.button_girl_3));
-                    bt16.setBackground(getResources().getDrawable(R.drawable.button_girl_3));
-                    bt17.setBackground(getResources().getDrawable(R.drawable.button_girl_3));
-                    bt18.setBackground(getResources().getDrawable(R.drawable.button_girl_3));
-                    bt19.setBackground(getResources().getDrawable(R.drawable.button_girl_3));
-                    bt20.setBackground(getResources().getDrawable(R.drawable.button_girl_3));
-                    bt21.setBackground(getResources().getDrawable(R.drawable.button_girl_3));
-
-
-                }
-                else{
-                    sex--;
-                    userportrait.setBackground(getResources().getDrawable(R.drawable.head1));
-                    cartoonface.setBackground(getResources().getDrawable(R.drawable.face1));
-                    homeButton.setBackground(getResources().getDrawable(R.drawable.homebutton));
-                    goal.setBackground(getResources().getDrawable(R.drawable.goal));
-                    bluebar.setBackground(getResources().getDrawable(R.color.lakeBlue));
-                    statusBar2.setBackground(getResources().getDrawable(R.color.lakeBlue));
-                    activity_main.setBackground(getResources().getDrawable(R.drawable.homebackgournd));
-                    bt1.setBackground(getResources().getDrawable(R.drawable.rectround2));
-                    bt2.setBackground(getResources().getDrawable(R.drawable.rectround2));
-                    bt3.setBackground(getResources().getDrawable(R.drawable.rectround2));
-                    bt4.setBackground(getResources().getDrawable(R.drawable.rectround2));
-                    bt5.setBackground(getResources().getDrawable(R.drawable.rectround2));
-                    bt6.setBackground(getResources().getDrawable(R.drawable.rectround2));
-                    bt7.setBackground(getResources().getDrawable(R.drawable.rectround2));
-                    bt8.setBackground(getResources().getDrawable(R.drawable.roundrect3));
-                    bt9.setBackground(getResources().getDrawable(R.drawable.roundrect3));
-                    bt10.setBackground(getResources().getDrawable(R.drawable.roundrect3));
-                    bt11.setBackground(getResources().getDrawable(R.drawable.roundrect3));
-                    bt12.setBackground(getResources().getDrawable(R.drawable.roundrect3));
-                    bt13.setBackground(getResources().getDrawable(R.drawable.roundrect3));
-                    bt14.setBackground(getResources().getDrawable(R.drawable.roundrect3));
-                    bt15.setBackground(getResources().getDrawable(R.drawable.roundrect));
-                    bt16.setBackground(getResources().getDrawable(R.drawable.roundrect));
-                    bt17.setBackground(getResources().getDrawable(R.drawable.roundrect));
-                    bt18.setBackground(getResources().getDrawable(R.drawable.roundrect));
-                    bt19.setBackground(getResources().getDrawable(R.drawable.roundrect));
-                    bt20.setBackground(getResources().getDrawable(R.drawable.roundrect));
-                    bt21.setBackground(getResources().getDrawable(R.drawable.roundrect));
-                }
             }
         });
 
         init();
-
+        setStars(1,1);
         ButtonListener buttonListener = new ButtonListener();
         bt1.setOnClickListener(buttonListener);
         bt2.setOnClickListener(buttonListener);
@@ -404,7 +250,6 @@ public class MainActivity extends AppCompatActivity{
         bt21.setOnClickListener(buttonListener);
     }
     class ButtonListener implements  View.OnClickListener{
-
         @Override
         public void onClick(View v) {
             showPopupWindow();
@@ -418,24 +263,20 @@ public class MainActivity extends AppCompatActivity{
         final int mScreenHeight = dm.heightPixels;
 
         final Button start1 = (Button) findViewById(R.id.star1);
-        final Button start2 = (Button) findViewById(R.id.star2);
         final Button userportrait = (Button) findViewById(R.id.userportrait);
         final Button homeButton = (Button) findViewById(R.id.homeButton);
         final Button closeStatus = (Button) findViewById(R.id.closeStatus);
         final Button statusUserIcon = (Button) findViewById(R.id.statusUserIcon);
         final TextView starText1 = (TextView) findViewById(R.id.starText1);
-        final TextView starText2 = (TextView) findViewById(R.id.starText2);
         final TextView username = (TextView) findViewById(R.id.username);
         final TextView statusText1 = (TextView) findViewById(R.id.statusText1);
         final TextView statusText2 = (TextView) findViewById(R.id.statusText2);
-        final TextView statusText3 = (TextView) findViewById(R.id.statusText3);
         final TextView statusText4 = (TextView) findViewById(R.id.statusText4);
         final TextView statusText5 = (TextView) findViewById(R.id.statusText5);
         final TextView statusText6 = (TextView) findViewById(R.id.statusText6);
         final View statusBar2 = findViewById(R.id.statusBar2);
 
         final TranslateAnimation translateAnimationStart1 = new TranslateAnimation(0,+mScreenWidth*0.4983f,0,-mScreenHeight*0.04f);
-        final TranslateAnimation translateAnimationStart2 = new TranslateAnimation(0,+mScreenWidth*0.4983f,0,-mScreenHeight*0.04f);
         final TranslateAnimation translateAnimationStatusText1 = new TranslateAnimation(0,+mScreenWidth*0.4983f,0,-mScreenHeight*0.04f);
         final TranslateAnimation translateAnimationStatusText2 = new TranslateAnimation(0,+mScreenWidth*0.4983f,0,-mScreenHeight*0.04f);
         final TranslateAnimation translateAnimationUserportrait = new TranslateAnimation(0,0,0,+mScreenHeight*0.0716f);
@@ -457,7 +298,6 @@ public class MainActivity extends AppCompatActivity{
         animationSet2.addAnimation(translateAnimationStatusText5);
 
         translateAnimationStart1.setDuration(1500);
-        translateAnimationStart2.setDuration(1500);
         translateAnimationStatusText1.setDuration(1500);
         translateAnimationStatusText2.setDuration(1500);
         translateAnimationUserportrait.setDuration(1500);
@@ -479,26 +319,6 @@ public class MainActivity extends AppCompatActivity{
                 int width = start1.getWidth();
                 int height = start1.getHeight();
                 start1.layout(left, top, left+width, top+height);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-        translateAnimationStart2.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                start2.clearAnimation();
-                int left = (int)(start2.getLeft()+mScreenWidth*0.4983f);
-                int top = (int) (start2.getTop() - mScreenHeight*0.04f);
-                int width = start2.getWidth();
-                int height = start2.getHeight();
-                start2.layout(left, top, left+width, top+height);
             }
 
             @Override
@@ -533,12 +353,6 @@ public class MainActivity extends AppCompatActivity{
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                starText2.clearAnimation();
-                int left = (int)(starText2.getLeft()+mScreenWidth*0.4983f);
-                int top = (int) (starText2.getTop() - mScreenHeight*0.04f);
-                int width = starText2.getWidth();
-                int height = starText2.getHeight();
-                starText2.layout(left, top, left+width, top+height);
             }
 
             @Override
@@ -626,7 +440,6 @@ public class MainActivity extends AppCompatActivity{
                 closeStatus.setVisibility(View.INVISIBLE);
                 statusText1.setVisibility(View.INVISIBLE);
                 statusText2.setVisibility(View.INVISIBLE);
-                statusText3.setVisibility(View.INVISIBLE);
                 statusText4.setVisibility(View.INVISIBLE);
                 statusText6.setVisibility(View.INVISIBLE);
                 statusText5.setVisibility(View.INVISIBLE);
@@ -634,9 +447,7 @@ public class MainActivity extends AppCompatActivity{
                 statusUserIcon.setVisibility(View.INVISIBLE);
 
                 start1.startAnimation(translateAnimationStart1);
-                start2.startAnimation(translateAnimationStart2);
                 starText1.startAnimation(translateAnimationStatusText1);
-                starText2.startAnimation(translateAnimationStatusText2);
                 userportrait.startAnimation(translateAnimationUserportrait);
                 username.startAnimation(translateAnimationUsername);
                 statusText6.startAnimation(translateAnimationStatusText6);
@@ -681,6 +492,10 @@ public class MainActivity extends AppCompatActivity{
         });
     }
 
+    private void changeTheme(int sex){  // 用于根据性别改变主题的函数
+
+    }
+
     private PopupWindow mPopWindow;
     private void showPopupWindow() {
         iconIndex = 1;
@@ -702,7 +517,7 @@ public class MainActivity extends AppCompatActivity{
         final Button leftbt = (Button) contentView.findViewById(R.id.leftBt);
         final Button rightbt = (Button) contentView.findViewById(R.id.rightBt);
         View popBar = contentView.findViewById(R.id.popBar);
-        if(sex == 1){
+        if(currentUser.getSex() == 1){
             popBar.setBackground(getResources().getDrawable(R.drawable.rewardbackground_boy));
             leftbt.setBackground(getResources().getDrawable(R.drawable.calendar_arrowleft_boy));
             rightbt.setBackground(getResources().getDrawable(R.drawable.calendar_arrowright_boy));
@@ -720,7 +535,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 if(iconIndex == 2){
-                    if(sex == 1)
+                    if(currentUser.getSex() == 1)
                         icon.setBackground(getResources().getDrawable(R.drawable.sun));
                     else
                         icon.setBackground(getResources().getDrawable(R.drawable.sun2));
@@ -729,7 +544,7 @@ public class MainActivity extends AppCompatActivity{
                     leftbt.setVisibility(View.INVISIBLE);
                 }
                 else if(iconIndex == 3){
-                    if(sex == 1)
+                    if(currentUser.getSex() == 1)
                         icon.setBackground(getResources().getDrawable(R.drawable.nightreward));
                     else
                         icon.setBackground(getResources().getDrawable(R.drawable.nightreward2));
@@ -744,7 +559,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 if(iconIndex == 1){
-                    if(sex == 1)
+                    if(currentUser.getSex() == 1)
                         icon.setBackground(getResources().getDrawable(R.drawable.nightreward));
                     else
                         icon.setBackground(getResources().getDrawable(R.drawable.nightreward2));
@@ -753,7 +568,7 @@ public class MainActivity extends AppCompatActivity{
                     leftbt.setVisibility(View.VISIBLE);
                 }
                 else if(iconIndex == 2){
-                    if(sex == 1)
+                    if(currentUser.getSex() == 1)
                         icon.setBackground(getResources().getDrawable(R.drawable.bluetoothreward));
                     else
                         icon.setBackground(getResources().getDrawable(R.drawable.bluetoothreward2));
@@ -770,6 +585,40 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
+    private void setStars(int btnNum, int starNum){
+        ImageView[] images = {(ImageView)findViewById(R.id.image1), (ImageView)findViewById(R.id.image2),
+                              (ImageView)findViewById(R.id.image3), (ImageView)findViewById(R.id.image4),
+                              (ImageView)findViewById(R.id.image5), (ImageView)findViewById(R.id.image6),
+                              (ImageView)findViewById(R.id.image7), (ImageView)findViewById(R.id.image8),
+                              (ImageView)findViewById(R.id.image9), (ImageView)findViewById(R.id.image10),
+                              (ImageView)findViewById(R.id.image11), (ImageView)findViewById(R.id.image12),
+                              (ImageView)findViewById(R.id.image13), (ImageView)findViewById(R.id.image14),
+                              (ImageView)findViewById(R.id.image15), (ImageView)findViewById(R.id.image16),
+                              (ImageView)findViewById(R.id.image17), (ImageView)findViewById(R.id.image18),
+                              (ImageView)findViewById(R.id.image19), (ImageView)findViewById(R.id.image20),
+                              (ImageView)findViewById(R.id.image21)};
+        TextView[] textViews = {(TextView) findViewById(R.id.text1), (TextView) findViewById(R.id.text2),
+                                (TextView) findViewById(R.id.text3), (TextView) findViewById(R.id.text4),
+                                (TextView) findViewById(R.id.text5), (TextView) findViewById(R.id.text6),
+                                (TextView) findViewById(R.id.text7), (TextView) findViewById(R.id.text8),
+                                (TextView) findViewById(R.id.text9), (TextView) findViewById(R.id.text10),
+                                (TextView) findViewById(R.id.text11), (TextView) findViewById(R.id.text12),
+                                (TextView) findViewById(R.id.text13), (TextView) findViewById(R.id.text14),
+                                (TextView) findViewById(R.id.text15), (TextView) findViewById(R.id.text16),
+                                (TextView) findViewById(R.id.text17), (TextView) findViewById(R.id.text18),
+                                (TextView) findViewById(R.id.text19), (TextView) findViewById(R.id.text20),
+                                (TextView) findViewById(R.id.text21)};
+        int sum = 0;
+        for(int i=1; i<=images.length;++i)
+        {
+            int number = (int)(Math.random()*10+1);
+            sum += number;
+            images[i-1].setImageResource(R.drawable.star);
+            textViews[i-1].setText(Integer.toString(number));
+        }
+        TextView text = (TextView)findViewById(R.id.starText1);
+        text.setText(Integer.toString(sum));
+    }
 
 }
 
