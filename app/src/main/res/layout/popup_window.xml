@@ -6,9 +6,8 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
     android:background="@drawable/yuanjiao"
-    tools:context="com.example.pault.toothbrush.MainActivity">
+    tools:context="com.example.onehouwong.architecture.activity.MainActivity">
 
     <View
         android:id = "@+id/popBar"
@@ -24,16 +23,14 @@
         android:id = "@+id/icon"
         android:layout_height = "200dp"
         android:layout_width = "209dp"
-        android:background="@drawable/sun"
         android:layout_gravity = "center_horizontal"
-
         app:layout_widthPercent = "55%"
         app:layout_heightPercent = "36%"
         app:layout_marginTopPercent = "20%"
         />
 
     <Button
-        android:id = "@+id/popStar"
+        android:id = "@+id/Star"
         android:background= "@drawable/star"
         android:layout_height = "0dp"
         android:layout_width = "0dp"
@@ -44,10 +41,9 @@
         />
 
     <TextView
-        android:id = "@+id/starNum"
-        android:text= "8"
+        android:id = "@+id/num"
         android:textSize= "40sp"
-        android:textColor = "#fff"
+        android:textColor = "@color/lakeBlue"
         android:layout_height = "wrap_content"
         android:layout_width = "wrap_content"
         app:layout_marginTopPercent = "80%"

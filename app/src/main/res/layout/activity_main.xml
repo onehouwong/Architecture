@@ -182,7 +182,6 @@
                             android:id="@+id/image1"
                             android:layout_width="match_parent"
                             android:layout_height="36dp"
-                            android:src="@drawable/star"
                             android:layout_weight="0.44" />
                         <TextView
                             android:id="@+id/text1"
@@ -190,7 +189,6 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="5dp"
-                            android:text="5"
                             android:textColor="@color/white"/>
                 </LinearLayout>
 
