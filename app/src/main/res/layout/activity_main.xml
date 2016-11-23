@@ -25,7 +25,7 @@
     <TextView
         android:id = "@+id/starText1"
         android:text= ""
-        android:textSize= "10dp"
+        android:textSize= "13dp"
         android:textColor = "#fff"
         android:layout_height = "0dp"
         android:layout_width = "0dp"
@@ -749,32 +749,9 @@
         app:layout_marginLeftPercent = "3.61%"
         />
 
-    <Button
-        android:id = "@+id/userportrait"
-        android:background = "@drawable/head1"
-        android:layout_height = "0dp"
-        android:layout_width = "0dp"
-        app:layout_widthPercent = "12.13%"
-        app:layout_heightPercent = "6.82%"
-        app:layout_marginTopPercent = "7.66%"
-        app:layout_marginLeftPercent = "3.61%"
-        />
-
-    <Button
-        android:id = "@+id/homeButton"
-        android:background = "@drawable/homebutton"
-        android:layout_height = "0dp"
-        android:layout_width = "0dp"
-        app:layout_widthPercent = "9.63%"
-        app:layout_heightPercent = "5.41%"
-        app:layout_marginTopPercent = "0.9%"
-        app:layout_marginLeftPercent = "4.81%"
-        />
-
     <TextView
         android:id = "@+id/username"
-        android:text= "heading"
-        android:textSize= "10dp"
+        android:textSize= "13dp"
         android:textColor = "#fff"
         android:layout_height = "0dp"
         android:layout_width = "0dp"
@@ -783,8 +760,6 @@
         app:layout_marginTopPercent = "10.15%"
         app:layout_marginLeftPercent = "16.64%"
         />
-
-
 
     <View
         android:id = "@+id/cartoonface"
@@ -798,124 +773,16 @@
 
         />
 
-    <View
-        android:id = "@+id/statusBar1"
-        android:layout_height = "0dp"
-        android:layout_width = "0dp"
-        android:background="@color/skyBlue"
-        android:visibility="invisible"
-
-        app:layout_widthPercent = "100%"
-        app:layout_heightPercent = "17.5%"
-        />
-
-    <View
-        android:id = "@+id/statusBar2"
-        android:layout_height = "0dp"
-        android:layout_width = "0dp"
-        android:background="@color/lakeBlue"
-        android:visibility="invisible"
-
-        app:layout_widthPercent = "100%"
-        app:layout_heightPercent = "18.12%"
-        app:layout_marginTopPercent = "17.5%"
-        />
-
-    <TextView
-        android:id = "@+id/statusText1"
-        android:text= "8"
-        android:textSize= "30dp"
-        android:textColor = "#fff"
-        android:layout_height = "0dp"
-        android:layout_width = "0dp"
-        android:visibility = "invisible"
-        app:layout_widthPercent = "13.3%"
-        app:layout_heightPercent = "7%"
-        app:layout_marginTopPercent = "7.39%"
-        app:layout_marginLeftPercent = "81.7%"
-        />
-
-    <TextView
-        android:id = "@+id/statusText2"
-        android:text= "8"
-        android:textSize= "30dp"
-        android:textColor = "#fff"
-        android:layout_height = "0dp"
-        android:layout_width = "0dp"
-        android:visibility = "invisible"
-        app:layout_widthPercent = "13.3%"
-        app:layout_heightPercent = "7%"
-        app:layout_marginTopPercent = "7.39%"
-        app:layout_marginLeftPercent = "59%"
-        />
-
-    <TextView
-        android:id = "@+id/statusText4"
-        android:text= "昨日得星"
-        android:textSize= "15dp"
-        android:textColor = "#fff"
-        android:layout_height = "0dp"
-        android:layout_width = "0dp"
-        android:visibility = "invisible"
-        app:layout_widthPercent = "19.53%"
-        app:layout_heightPercent = "3.64%"
-        app:layout_marginTopPercent = "13.89%"
-        app:layout_marginLeftPercent = "55.95%"
-        />
-
     <Button
-        android:id = "@+id/closeStatus"
-        android:background= "@drawable/roundbutton"
+        android:id = "@+id/userportrait"
+        android:background = "@drawable/head1"
         android:layout_height = "0dp"
         android:layout_width = "0dp"
-        android:text = "X"
-        android:textSize = "20dp"
-        android:visibility = "invisible"
-
-        app:layout_widthPercent = "8.79%"
-        app:layout_heightPercent = "4.94%"
-        app:layout_marginTopPercent = "0.9%"
-        app:layout_marginLeftPercent = "89.36%"
-        />
-
-    <Button
-        android:id = "@+id/statusUserIcon"
-        android:background= "@drawable/roundbutton"
-        android:layout_height = "0dp"
-        android:layout_width = "0dp"
-        android:visibility = "invisible"
-
-        app:layout_widthPercent = "15.74%"
-        app:layout_heightPercent = "8.85%"
-        app:layout_marginTopPercent = "20.36%"
-        app:layout_marginLeftPercent = "84%"
-        />
-
-    <TextView
-        android:id = "@+id/statusText5"
-        android:text= "用户名"
-        android:textSize= "15dp"
-        android:textColor = "#ffffff"
-        android:layout_height = "0dp"
-        android:layout_width = "0dp"
-        android:visibility = "invisible"
-        app:layout_widthPercent = "15%"
-        app:layout_heightPercent = "4%"
-        app:layout_marginTopPercent = "30.56%"
-        app:layout_marginLeftPercent = "84%"
-        />
-    <TextView
-        android:id = "@+id/statusText6"
-        android:text= "上次同步信息"
-        android:textSize= "12sp"
-        android:textColor = "#fff"
-        android:layout_height = "0dp"
-        android:layout_width = "0dp"
-        android:visibility = "invisible"
-        app:layout_widthPercent = "35.27%"
-        app:layout_heightPercent = "3%"
-        app:layout_marginTopPercent = "10.205%"
-        app:layout_marginLeftPercent = "25.95%"
+        app:layout_widthPercent = "12.13%"
+        app:layout_heightPercent = "6.82%"
+        app:layout_marginTopPercent = "7.66%"
+        app:layout_marginLeftPercent = "3.61%"
+        android:clickable="true"
         />
 
 

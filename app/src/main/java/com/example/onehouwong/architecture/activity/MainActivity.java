@@ -1,7 +1,9 @@
 package com.example.onehouwong.architecture.activity;
 
+import android.content.DialogInterface;
 import android.graphics.drawable.PaintDrawable;
 import android.os.CancellationSignal;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity{
     Calendar girl1Calendar = new Calendar(girl1);
     User[] users = new User[]{boy1, girl1};
     Calendar[] calendars = new Calendar[]{boy1Calendar, girl1Calendar};
+    int result;
 
     User currentUser; // 当前切换所在的用户
     Calendar currentCalendar;
@@ -40,22 +43,6 @@ public class MainActivity extends AppCompatActivity{
 
         DisplayMetrics dm = new DisplayMetrics();
         MainActivity.this.getWindowManager().getDefaultDisplay().getMetrics(dm);
-        final int mScreenWidth  = dm.widthPixels;
-        final int mScreenHeight = dm.heightPixels;
-        final Button start1 = (Button) findViewById(R.id.star1);
-        final Button userportrait = (Button) findViewById(R.id.userportrait);
-        final Button homeButton = (Button) findViewById(R.id.homeButton);
-        final Button closeStatus = (Button) findViewById(R.id.closeStatus);
-        final Button statusUserIcon = (Button) findViewById(R.id.statusUserIcon);
-        final TextView starText1 = (TextView) findViewById(R.id.starText1);
-        final TextView username = (TextView) findViewById(R.id.username);
-        final TextView statusText1 = (TextView) findViewById(R.id.statusText1);
-        final TextView statusText2 = (TextView) findViewById(R.id.statusText2);
-        final TextView statusText4 = (TextView) findViewById(R.id.statusText4);
-        final TextView statusText5 = (TextView) findViewById(R.id.statusText5);
-        final TextView statusText6 = (TextView) findViewById(R.id.statusText6);
-        final View statusBar2 = findViewById(R.id.statusBar2);
-
         // 设置日历按钮
         buttons = new LinearLayout[]{(LinearLayout) findViewById(R.id.bt1), (LinearLayout) findViewById(R.id.bt2),
                 (LinearLayout) findViewById(R.id.bt3), (LinearLayout) findViewById(R.id.bt4),
@@ -68,9 +55,6 @@ public class MainActivity extends AppCompatActivity{
                 (LinearLayout) findViewById(R.id.bt17), (LinearLayout) findViewById(R.id.bt18),
                 (LinearLayout) findViewById(R.id.bt19), (LinearLayout) findViewById(R.id.bt20),
                 (LinearLayout) findViewById(R.id.bt21)};
-
-
-
         init();
         changeTheme(currentUser.getSex());
         setStars();
@@ -97,29 +81,40 @@ public class MainActivity extends AppCompatActivity{
     private void init(){
         DisplayMetrics dm = new DisplayMetrics();
         MainActivity.this.getWindowManager().getDefaultDisplay().getMetrics(dm);
-        final int mScreenWidth  = dm.widthPixels;
-        final int mScreenHeight = dm.heightPixels;
-
-        final Button start1 = (Button) findViewById(R.id.star1);
-        final Button userportrait = (Button) findViewById(R.id.userportrait);
-        final Button homeButton = (Button) findViewById(R.id.homeButton);
-        final Button closeStatus = (Button) findViewById(R.id.closeStatus);
-        final Button statusUserIcon = (Button) findViewById(R.id.statusUserIcon);
-        final TextView starText1 = (TextView) findViewById(R.id.starText1);
         final TextView username = (TextView) findViewById(R.id.username);
-        final TextView statusText1 = (TextView) findViewById(R.id.statusText1);
-        final TextView statusText2 = (TextView) findViewById(R.id.statusText2);
-        final TextView statusText4 = (TextView) findViewById(R.id.statusText4);
-        final TextView statusText5 = (TextView) findViewById(R.id.statusText5);
-        final TextView statusText6 = (TextView) findViewById(R.id.statusText6);
-        final View statusBar2 = findViewById(R.id.statusBar2);
-
+        username.setText(currentUser.getUserName());
+        Button userPort = (Button)findViewById(R.id.userportrait);
+        final String[] userNames = new String[users.length];
+        for(int i=0;i<users.length;++i)
+            userNames[i] = users[i].getUserName();
+        userPort.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                if(currentUser.getSex() == 0)
+                    builder.setIcon(R.drawable.face2);
+                else
+                    builder.setIcon(R.drawable.face1);
+                builder.setTitle("切换宝宝");
+                builder.setSingleChoiceItems(userNames, 0, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        result = i;
+                    }
+                });
+                builder.setPositiveButton("切换", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        switchUser(result);
+                    }
+                });
+                builder.create().show();
+            }
+        });
     }
 
     private void changeTheme(int sex){  // 用于根据性别改变主题的函数
         final Button userportrait = (Button) findViewById(R.id.userportrait);
-        final Button homeButton = (Button) findViewById(R.id.homeButton);
-        final View statusBar2 = findViewById(R.id.statusBar2);
         View cartoonface = findViewById(R.id.cartoonface);
         View goal = findViewById(R.id.goal);
         PercentFrameLayout bluebar = (PercentFrameLayout) findViewById(R.id.bluebar);
@@ -127,19 +122,15 @@ public class MainActivity extends AppCompatActivity{
         if(currentUser.getSex() == 0){
             userportrait.setBackground(getResources().getDrawable(R.drawable.head2));
             cartoonface.setBackground(getResources().getDrawable(R.drawable.face2));
-            homeButton.setBackground(getResources().getDrawable(R.drawable.homebutton2));
             goal.setBackground(getResources().getDrawable(R.drawable.goal2));
             bluebar.setBackground(getResources().getDrawable(R.color.colorAccent));
-            statusBar2.setBackground(getResources().getDrawable(R.color.colorAccent));
             activity_main.setBackground(getResources().getDrawable(R.drawable.homebackgournd2));
         }
         else{
             userportrait.setBackground(getResources().getDrawable(R.drawable.head1));
             cartoonface.setBackground(getResources().getDrawable(R.drawable.face1));
-            homeButton.setBackground(getResources().getDrawable(R.drawable.homebutton));
             goal.setBackground(getResources().getDrawable(R.drawable.goal));
             bluebar.setBackground(getResources().getDrawable(R.color.lakeBlue));
-            statusBar2.setBackground(getResources().getDrawable(R.color.lakeBlue));
             activity_main.setBackground(getResources().getDrawable(R.drawable.homebackgournd));
         }
     }
@@ -255,6 +246,12 @@ public class MainActivity extends AppCompatActivity{
     }
 
     // 切换用户
-    private void switchUser(int index){ currentUser = users[index]; currentCalendar = calendars[index]; }
+    private void switchUser(int index){
+        currentUser = users[index];
+        currentCalendar = calendars[index];
+        changeTheme(currentUser.getSex());
+        init();
+    }
+
 }
 
