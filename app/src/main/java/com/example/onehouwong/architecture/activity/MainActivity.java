@@ -16,6 +16,8 @@ import com.example.onehouwong.architecture.model.Calendar;
 import com.example.onehouwong.architecture.model.User;
 import com.zhy.android.percent.support.PercentFrameLayout;
 
+import org.w3c.dom.Text;
+
 public class MainActivity extends AppCompatActivity{
 
     User boy1 = new User(1, "boy1");
@@ -74,7 +76,7 @@ public class MainActivity extends AppCompatActivity{
                     index = i;
             int sum = Integer.parseInt(textViews[index].getText().toString());
             if(sum != 0) // 0颗星的话就没有奖励了╮(╯_╰)╭
-                showPopupWindow();
+                showPopupWindow(sum);
         }
     }
 
@@ -91,12 +93,15 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                if(currentUser.getSex() == 0)
+                if(currentUser.getSex() == 0) {
                     builder.setIcon(R.drawable.face2);
+
+                }
                 else
                     builder.setIcon(R.drawable.face1);
                 builder.setTitle("切换宝宝");
-                builder.setSingleChoiceItems(userNames, 0, new DialogInterface.OnClickListener() {
+                int item = userNames[0].equals(username.getText())?0:1;
+                builder.setSingleChoiceItems(userNames, item, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         result = i;
@@ -136,7 +141,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
     private PopupWindow popWindow;
-    private void showPopupWindow() {
+    private void showPopupWindow(int sum) {
         index = 1;
         DisplayMetrics dm = new DisplayMetrics();
         MainActivity.this.getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -152,6 +157,8 @@ public class MainActivity extends AppCompatActivity{
         final View icon = contentView.findViewById(R.id.icon);
         final Button leftButton = (Button) contentView.findViewById(R.id.leftBt);
         final Button rightButton = (Button) contentView.findViewById(R.id.rightBt);
+        final TextView starText = (TextView)contentView.findViewById(R.id.starNum);
+        starText.setText(Integer.toString(sum));
         View popBar = contentView.findViewById(R.id.popBar);
 
         if(currentUser.getSex() == 1){
@@ -240,8 +247,8 @@ public class MainActivity extends AppCompatActivity{
             textViews[i-1].setText(Integer.toString(number));
             currentCalendar.setStar(i-1, number);
         }
-        TextView text = (TextView)findViewById(R.id.starText1);
-        text.setText(Integer.toString(sum));
+        TextView starText = (TextView)findViewById(R.id.starText1);
+        starText.setText(Integer.toString(sum));
         currentUser.setStars(sum);
     }
 

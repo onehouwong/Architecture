@@ -41,7 +41,7 @@
         />
 
     <TextView
-        android:id = "@+id/num"
+        android:id = "@+id/starNum"
         android:textSize= "40sp"
         android:textColor = "@color/lakeBlue"
         android:layout_height = "wrap_content"
