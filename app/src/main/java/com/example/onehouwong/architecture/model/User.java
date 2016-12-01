@@ -8,7 +8,6 @@ public class User {
     private int sex;  // 1表示男 0表示女
     private String userName;
     private int stars;
-
     public User(int s, String name){
         sex = s;
         userName = name;

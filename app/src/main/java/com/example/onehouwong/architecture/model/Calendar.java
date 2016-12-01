@@ -8,17 +8,21 @@ public class Calendar {
     private User user;
     private final int DAYS = 21;
     private int[] star;
+    private int sum;
 
     public Calendar(User u){
         user = u;
+        sum = 0;
         star = new int[DAYS];
-        for(int i=0;i<DAYS;++i)
+        for(int i=0;i<DAYS;++i) //初始化日历的星数
         {
-            star[i] = 0;
+            int number = (int)(Math.random()*10);
+            sum += number;
+            star[i] = number;
         }
     }
 
-    public User getUser(){  return user;    }
+    public int getSum(){  return sum;    }
     public int getStar(int i){    return star[i];   }
     public void setStar(int i, int num){    star[i] = num;  }
 }
