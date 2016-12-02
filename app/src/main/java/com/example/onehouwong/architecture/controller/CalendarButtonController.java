@@ -25,44 +25,44 @@ public class CalendarButtonController implements View.OnClickListener{
     private CalendarButtonControllerListener listener;
     private View contentView;
     private int starNum;
+    private PopupWindow popWindow;
 
-    public CalendarButtonController(MainView mainView, View contentView, CalendarButtonControllerListener listener, int starNum){
+    public CalendarButtonController(MainView mainView, View contentView, CalendarButtonControllerListener listener, int index, PopupWindow window){
         this.mainView = mainView;
         this.listener = listener;
         this.contentView = contentView;
-        this.starNum = starNum;
+        this.starNum = UserList.getCurrentCalendar().getStar(index);
+        this.popWindow = window;
     }
 
     @Override
     public void onClick(View v){
-        PopupWindow popWindow;
-        popWindow = new PopupWindow(contentView, (int)(ViewConstant.M_SCREEN_WIDTH*0.7), (int)(ViewConstant.M_SCREEN_HEIGHT*0.5), true);
         popWindow.setContentView(contentView);
         popWindow.setFocusable(true);
         popWindow.setBackgroundDrawable(new PaintDrawable(R.drawable.yuanjiao));
         popWindow.setOutsideTouchable(true);
         final View icon = contentView.findViewById(R.id.icon);
-        final TextView starText = (TextView)contentView.findViewById(R.id.starNum);
-        final Button leftButton = (Button)contentView.findViewById(R.id.leftBt);
-        final Button rightButton = (Button)contentView.findViewById(R.id.rightBt);
+        final TextView starText = ((WindowView)contentView).getStarNum();
+        final Button leftButton = ((WindowView)contentView).getLeftButton();
+        final Button rightButton = ((WindowView)contentView).getRightButton();
         ((WindowView)contentView).setLeftButtonListeners(new LeftButtonController((WindowView)contentView));
         ((WindowView)contentView).setRightButtonListeners(new RightButtonController((WindowView)contentView));
         starText.setText(Integer.toString(starNum));
         View popBar = contentView.findViewById(R.id.popBar);
 
         if(UserList.getCurrentUser().getSex() == 1){
-            popBar.setBackground(getResources().getDrawable(R.drawable.rewardbackground_boy));
-            leftButton.setBackground(getResources().getDrawable(R.drawable.calendar_arrowleft_boy));
-            rightButton.setBackground(getResources().getDrawable(R.drawable.calendar_arrowright_boy));
-            icon.setBackground(getResources().getDrawable(R.drawable.hamburger));
+            popBar.setBackground(contentView.getResources().getDrawable(R.drawable.rewardbackground_boy));
+            leftButton.setBackground(contentView.getResources().getDrawable(R.drawable.calendar_arrowleft_boy));
+            rightButton.setBackground(contentView.getResources().getDrawable(R.drawable.calendar_arrowright_boy));
+            icon.setBackground(contentView.getResources().getDrawable(R.drawable.hamburger));
         }
         else{
-            popBar.setBackground(getResources().getDrawable(R.drawable.rewardbackground_girl));
-            leftButton.setBackground(getResources().getDrawable(R.drawable.calendar_arrowleft_girl));
-            rightButton.setBackground(getResources().getDrawable(R.drawable.calendar_arrowright_girl));
-            icon.setBackground(getResources().getDrawable(R.drawable.hamburger));
+            popBar.setBackground(contentView.getResources().getDrawable(R.drawable.rewardbackground_girl));
+            leftButton.setBackground(contentView.getResources().getDrawable(R.drawable.calendar_arrowleft_girl));
+            rightButton.setBackground(contentView.getResources().getDrawable(R.drawable.calendar_arrowright_girl));
+            icon.setBackground(contentView.getResources().getDrawable(R.drawable.hamburger));
         }
-
-        listener.showWindow(popWindow);
+        if(starNum != 0)
+            listener.showWindow(popWindow);
     }
 }

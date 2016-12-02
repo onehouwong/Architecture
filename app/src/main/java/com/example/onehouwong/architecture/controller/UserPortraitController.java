@@ -69,29 +69,38 @@ public class UserPortraitController  implements View.OnClickListener {
         UserList.setCurrentCalendar(UserList.getCalendars()[index]);
         User currentUser = UserList.getCurrentUser();
         changeTheme(currentUser.getSex());
+        setStars();
         final TextView username = mainView.getUserName();
         username.setText(currentUser.getUserName());
     }
 
     private void changeTheme(int sex){  // 用于根据性别改变主题的函数
         final Button userportrait = mainView.getUserPortrait();
-        View cartoonface = mainView.getCartoonFace()
+        View cartoonface = mainView.getCartoonFace();
         View goal = mainView.getGoal();
         PercentFrameLayout bluebar = mainView.getBlueBar();
         MainView activity_main = mainView.getLayout();
         if(sex == 0){
-            userportrait.setBackground(getResources().getDrawable(R.drawable.head2));
-            cartoonface.setBackground(getResources().getDrawable(R.drawable.face2));
-            goal.setBackground(getResources().getDrawable(R.drawable.goal2));
-            bluebar.setBackground(getResources().getDrawable(R.color.colorAccent));
-            activity_main.setBackground(getResources().getDrawable(R.drawable.homebackgournd2));
+            userportrait.setBackground(mainView.getResources().getDrawable(R.drawable.head2));
+            cartoonface.setBackground(mainView.getResources().getDrawable(R.drawable.face2));
+            goal.setBackground(mainView.getResources().getDrawable(R.drawable.goal2));
+            bluebar.setBackground(mainView.getResources().getDrawable(R.color.colorAccent));
+            activity_main.setBackground(mainView.getResources().getDrawable(R.drawable.homebackgournd2));
         }
         else{
-            userportrait.setBackground(getResources().getDrawable(R.drawable.head1));
-            cartoonface.setBackground(getResources().getDrawable(R.drawable.face1));
-            goal.setBackground(getResources().getDrawable(R.drawable.goal));
-            bluebar.setBackground(getResources().getDrawable(R.color.lakeBlue));
-            activity_main.setBackground(getResources().getDrawable(R.drawable.homebackgournd));
+            userportrait.setBackground(mainView.getResources().getDrawable(R.drawable.head1));
+            cartoonface.setBackground(mainView.getResources().getDrawable(R.drawable.face1));
+            goal.setBackground(mainView.getResources().getDrawable(R.drawable.goal));
+            bluebar.setBackground(mainView.getResources().getDrawable(R.color.lakeBlue));
+            activity_main.setBackground(mainView.getResources().getDrawable(R.drawable.homebackgournd));
         }
+    }
+
+    private void setStars(){
+        TextView[] textViews = mainView.getTextViews();
+        for(int i=0; i<textViews.length;++i)
+            textViews[i].setText(Integer.toString(UserList.getCurrentCalendar().getStar(i)));
+        TextView starText = mainView.getStarText();
+        starText.setText(Integer.toString(UserList.getCurrentCalendar().getSum()));
     }
 }

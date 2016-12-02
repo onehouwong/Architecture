@@ -20,14 +20,14 @@ public class LeftButtonController  implements View.OnClickListener {
     @Override
     public void onClick(View v){
         if(windowView.getIndex() == 2){
-            windowView.getIcon().setBackground(getResources().getDrawable(R.drawable.hamburger));
+            windowView.getIcon().setBackground(windowView.getResources().getDrawable(R.drawable.hamburger));
             windowView.setIndex(1);
             Button leftButton = windowView.getLeftButton();
             leftButton.setEnabled(false);
             leftButton.setVisibility(View.INVISIBLE);
         }
         else if(windowView.getIndex() == 3){
-            windowView.getIcon().setBackground(getResources().getDrawable(R.drawable.chocolate));
+            windowView.getIcon().setBackground(windowView.getResources().getDrawable(R.drawable.chocolate));
             windowView.setIndex(2);
             Button rightButton = windowView.getRightButton();
             rightButton.setEnabled(true);

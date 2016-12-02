@@ -15,12 +15,12 @@ public class UserList {
         Calendar boy1Calendar = new Calendar(boy1);
         User girl1 = new User(0, "girl1");
         Calendar girl1Calendar = new Calendar(girl1);
-        currentUser = users[0];
-        currentCalendar = calendars[0];
         users = new User[2];
         calendars = new Calendar[2];
         users[0] = boy1;    users[1] = girl1;
         calendars[0] = boy1Calendar;    calendars[1] = girl1Calendar;
+        currentUser = users[0];
+        currentCalendar = calendars[0];
         userIndex = 1;
         calendarIndex = 1;
     }

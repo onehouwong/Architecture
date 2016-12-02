@@ -6,12 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.onehouwong.architecture.R;
 import com.example.onehouwong.architecture.activity.LoginControllerListener;
 import com.example.onehouwong.architecture.controller.LoginController;
+import com.example.onehouwong.architecture.model.UserList;
 import com.example.onehouwong.architecture.view.LoginView;
+import com.example.onehouwong.architecture.view.MainView;
 
 public class LoginActivity extends AppCompatActivity implements LoginControllerListener{
 

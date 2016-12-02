@@ -32,7 +32,7 @@ public class MainView extends PercentFrameLayout {
     }
 
     public LinearLayout[] getCalendarButton() {
-        LinearLayout[] buttons = new LinearLayout[21];
+        LinearLayout[] buttons;
         buttons = new LinearLayout[]{(LinearLayout) findViewById(R.id.bt1), (LinearLayout) findViewById(R.id.bt2),
                 (LinearLayout) findViewById(R.id.bt3), (LinearLayout) findViewById(R.id.bt4),
                 (LinearLayout) findViewById(R.id.bt5), (LinearLayout) findViewById(R.id.bt6),
@@ -45,22 +45,6 @@ public class MainView extends PercentFrameLayout {
                 (LinearLayout) findViewById(R.id.bt19), (LinearLayout) findViewById(R.id.bt20),
                 (LinearLayout) findViewById(R.id.bt21)};
         return buttons;
-    }
-
-    public ImageView[] getImageViews() {
-        ImageView[] images = new ImageView[21];
-        images = new ImageView[]{(ImageView)findViewById(R.id.image1), (ImageView)findViewById(R.id.image2),
-                (ImageView)findViewById(R.id.image3), (ImageView)findViewById(R.id.image4),
-                (ImageView)findViewById(R.id.image5), (ImageView)findViewById(R.id.image6),
-                (ImageView)findViewById(R.id.image7), (ImageView)findViewById(R.id.image8),
-                (ImageView)findViewById(R.id.image9), (ImageView)findViewById(R.id.image10),
-                (ImageView)findViewById(R.id.image11), (ImageView)findViewById(R.id.image12),
-                (ImageView)findViewById(R.id.image13), (ImageView)findViewById(R.id.image14),
-                (ImageView)findViewById(R.id.image15), (ImageView)findViewById(R.id.image16),
-                (ImageView)findViewById(R.id.image17), (ImageView)findViewById(R.id.image18),
-                (ImageView)findViewById(R.id.image19), (ImageView)findViewById(R.id.image20),
-                (ImageView)findViewById(R.id.image21)};
-        return images;
     }
 
     public TextView[] getTextViews(){
